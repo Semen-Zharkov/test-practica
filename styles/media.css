@@ -175,7 +175,7 @@
     }
     .section-promo{
         position: relative;
-        background-image: url('image/img-media/robots.svg');
+        background-image: url('../image/img-media/robots.svg');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: inherit;

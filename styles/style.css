@@ -180,7 +180,7 @@ header {
 
 .section-promo{
     margin: 1.9375em auto 0;
-    background-image: url("image/background/background-promo.jpg");
+    background-image: url("../image/background/background-promo.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -342,16 +342,16 @@ header {
     min-height: 14.625em;
 }
 .section-news__statistics-list-item-participants{
-    background-image: url("image/background/background-news-item-1.svg");
+    background-image: url("../image/background/background-news-item-1.svg");
 }
 .section-news__statistics-list-item-investment{
-    background-image: url("image/background/background-news-item-2.svg");
+    background-image: url("../image/background/background-news-item-2.svg");
 }
 .section-news__statistics-list-item-partners{
-    background-image: url("image/background/background-news-item-3.svg");
+    background-image: url("../image/background/background-news-item-3.svg");
 }
 .section-news__statistics-list-item-staff{
-    background-image: url("image/background/background-news-item-4.svg");
+    background-image: url("../image/background/background-news-item-4.svg");
 }
 .section-news__list-item-block{
     height: 100%;
@@ -410,7 +410,7 @@ header {
     margin: 2.3125em auto 0;
     max-width: 92.5em;
     min-height: 50.25em;
-    background-image: url("image/background/background-advantages.jpg");
+    background-image: url("../image/background/background-advantages.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
