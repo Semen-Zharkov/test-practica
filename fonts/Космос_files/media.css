@@ -1,0 +1,90 @@
+@media (max-width: 375px){
+    .header-nav{
+        max-width: 20.3125em;
+        max-height: 30px;
+    }
+    .header-nav__authorization-media{
+        display: block;
+    }
+    .header-nav__buttons{
+        display: none;
+    }
+    .section-news__statistics-list{
+        overflow: hidden;
+    }
+    .header-nav__block-auth{
+        display: none;
+    }
+    .header-nav__menu-burger{
+        position: relative;
+        display: block;
+        margin: auto;
+        height: 0.3125em;
+        width: 1.9375em;
+        border-radius: 0.25em;
+        background-color: #FFFFFF;
+    }
+    .header-nav__menu-burger::before, .header-nav__menu-burger::after{
+        content: '';
+        position: absolute;
+        height: 0.3125em;
+        width: 1.9375em;
+        border-radius: 0.25em;
+        background-color: #FFFFFF;
+    }
+    .header-nav__menu-burger::before{
+        top: -0.75em;
+    }
+    .header-nav__menu-burger::after{
+        top: 0.75em;
+    }
+    .header-nav__input {
+        margin-right: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    main{
+        display: none;
+    }
+    .section-promo{
+        display: none;
+    }
+    .section-ecosystem-benefits{
+        display: none;
+    }
+    .section-infrastructure{
+        display: none;
+    }
+    .section-advertising__container{
+        display: none;
+    }
+    footer{
+        display: none;
+    }
+}
