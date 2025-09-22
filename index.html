@@ -391,9 +391,9 @@
 
     </div>
   </footer>
-    <script src="scripts/script.js"></script>
     <!-- Roistat Counter Start -->
     <script>
+        roistat.event.send('event_js')
         (function(w, d, s, h, id) {
             w.roistatProjectId = id; w.roistatHost = h;
             var p = d.location.protocol == "https:" ? "https://" : "http://";
