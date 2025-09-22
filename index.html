@@ -445,6 +445,9 @@
         document.querySelector('#event_js').addEventListener('click', (e)=> {
             roistat.event.send('event_js')
         })
+        document.querySelector('#feedbackForm').addEventListener('submit', (e)=> {
+            roistat.event.send('feedbackForm')
+        })
     </script>
     <!-- Roistat Counter End -->
  </body>
