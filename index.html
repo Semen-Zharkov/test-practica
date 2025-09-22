@@ -113,6 +113,43 @@
         <img class="section-promo__background-media-left" src="image/img-media/vector-left.svg">
         <img class="section-promo__background-media-rectangle-two" src="image/img-media/vector-rectangle.svg">
     </section>
+    <div class="feedback-container">
+        <h2>Обратная связь</h2>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">Имя <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Категория вопроса</label>
+                <select id="category" name="category">
+                    <option value="">-- Выберите категорию --</option>
+                    <option value="general">Общий вопрос</option>
+                    <option value="technical">Техническая поддержка</option>
+                    <option value="billing">Биллинг</option>
+                    <option value="suggestion">Предложение</option>
+                    <option value="complaint">Жалоба</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Сообщение <span class="required">*</span></label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <button type="submit">Отправить</button>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+            Спасибо! Ваше сообщение отправлено.
+        </div>
+    </div>
     <section class="section-news section_style_container"> 
         <div class="section-news__container">
             <div class="section-news__block-statistics">
@@ -391,15 +428,31 @@
 
     </div>
   </footer>
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // В реальном приложении здесь был бы код для отправки данных на сервер
+            // Для демонстрации просто покажем сообщение об успехе
+            
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('feedbackForm').reset();
+            
+            // Скрыть сообщение через 3 секунды
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+    </script>
     <!-- Roistat Counter Start -->
     <script>
-        roistat.event.send('event_js')
         (function(w, d, s, h, id) {
             w.roistatProjectId = id; w.roistatHost = h;
             var p = d.location.protocol == "https:" ? "https://" : "http://";
             var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
             var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
         })(window, document, 'script', 'cloud.roistat.com', 'ab859ee1a2692bf185711e09a329504b');
+        roistat.event.send('event_js')
     </script>
     <!-- Roistat Counter End -->
  </body>
