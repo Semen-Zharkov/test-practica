@@ -454,7 +454,9 @@
     </script>
     <!-- Roistat Counter Start -->
     <script>
-        roistat.event.send('event_js')
+        document.querySelector('#event_js').addEventListener('click', (e)=> {
+            roistat.event.send('event_js')
+        })
     </script>
     <!-- Roistat Counter End -->
  </body>
