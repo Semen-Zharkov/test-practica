@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Разрешаем CORS
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type"
+
+# Обрабатываем OPTIONS для CORS
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Перенаправляем все на webhook.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ webhook.php [QSA,L]
