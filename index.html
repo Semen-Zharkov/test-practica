@@ -428,7 +428,7 @@
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             // roistat.event.send('feedbackForm')
             e.preventDefault();
-            const formData = new FormData(e);
+            const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             roistatGoal.reach({name: data.name, email: data.email, message: data.message})
             // // В реальном приложении здесь был бы код для отправки данных на сервер
