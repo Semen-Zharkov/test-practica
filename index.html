@@ -430,7 +430,7 @@
             e.preventDefault();
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
-            roistatGoal.reach({name: data.name, email: data.email, message: data.message})
+            roistatGoal.reach({name: data.name, email: data.email, text: data.message})
             // // В реальном приложении здесь был бы код для отправки данных на сервер
             // // Для демонстрации просто покажем сообщение об успехе
             
