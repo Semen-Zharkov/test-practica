@@ -65,7 +65,7 @@ try {
  * Запись данных в лог-файл
  */
 function writeToLog($data) {
-    $logDir = __DIR__ . '/logs';
+    $logDir = __DIR__ . '/api';
     
     // Создаем директорию если не существует
     if (!is_dir($logDir)) {
