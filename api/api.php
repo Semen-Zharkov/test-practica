@@ -1,9 +1,8 @@
 <?php
 // Явно устанавливаем CORS заголовки ПЕРЕД любым выводом
-header('Access-Control-Allow-Origin: https://test-practica.vercel.app');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
 header('Content-Type: application/json; charset=utf-8');
 
 // Обрабатываем preflight OPTIONS запрос
