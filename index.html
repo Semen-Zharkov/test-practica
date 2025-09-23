@@ -426,6 +426,7 @@
   </footer>
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            roistat.event.send('feedbackForm')
             // e.preventDefault();
             
             // // В реальном приложении здесь был бы код для отправки данных на сервер
@@ -444,9 +445,6 @@
     <script>
         document.querySelector('#event_js').addEventListener('click', (e)=> {
             roistat.event.send('event_js')
-        })
-        document.querySelector('#feedbackForm').addEventListener('submit', (e)=> {
-            roistat.event.send('feedbackForm')
         })
     </script>
     <!-- Roistat Counter End -->

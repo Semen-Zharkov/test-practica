@@ -1,66 +1,41 @@
-export async function sendToRoistat(formData, roistatVisitCookie = 'nocookie') {
-    // Подготовка данных для Roistat
-    const roistatData = {
-        'roistat': roistatVisitCookie,
-        'key': process.env.ROISTAT_API_KEY || '', // Ключ из .env
-        'title': formData.title || 'Новая заявка с сайта',
-        'comment': formData.comment || '',
-        'name': formData.name || '',
-        'email': formData.email || '',
-        'phone': formData.phone || '',
-        'order_creation_method': formData.order_creation_method || '',
-        'is_need_callback': formData.is_need_callback || '0',
-        'callback_phone': formData.callback_phone || '',
-        'sync': formData.sync || '0',
-        'is_need_check_order_in_processing': formData.is_need_check_order_in_processing || '1',
-        'is_need_check_order_in_processing_append': formData.is_need_check_order_in_processing_append || '1',
-        'is_skip_sending': formData.is_skip_sending || '1',
-        'fields': {
-            'charset': 'UTF-8', // В JavaScript обычно UTF-8
-            // Дополнительные поля
-            ...formData.fields
-        }
+export default async function handler(req, res) {
+  // Простые CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Обрабатываем OPTIONS запрос
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // Разрешаем только POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  try {
+    console.log('📨 Received webhook data:', req.body);
+
+    // Простой ответ для тестирования
+    const response = {
+      success: true,
+      message: 'Данные успешно получены',
+      timestamp: new Date().toISOString(),
+      received_data: req.body,
+      roistat_visit: req.body?.roistat_visit || 'not_provided'
     };
 
-    try {
-        // Отправка данных в Roistat
-        const response = await fetch(
-            `https://cloud.roistat.com/api/proxy/1.0/leads/add?${new URLSearchParams(roistatData).toString()}`,
-            {
-                method: 'GET', // Roistat использует GET запросы
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            }
-        );
+    console.log('✅ Response:', response);
+    
+    res.status(200).json(response);
 
-        if (!response.ok) {
-            throw new Error(`Roistat API error: ${response.status}`);
-        }
-
-        const result = await response.text();
-        console.log('✅ Данные отправлены в Roistat:', result);
-        return { success: true, data: result };
-
-    } catch (error) {
-        console.error('❌ Ошибка отправки в Roistat:', error);
-        return { success: false, error: error.message };
-    }
-}
-
-// Упрощенная версия для быстрой интеграции
-export async function sendSimpleLead({ name, email, phone, comment = '' }) {
-    const formData = {
-        title: `Заявка от ${name}`,
-        name: name,
-        email: email,
-        phone: phone,
-        comment: comment,
-        fields: {
-            'source': 'website',
-            'timestamp': new Date().toISOString()
-        }
-    };
-
-    return await sendToRoistat(formData);
+  } catch (error) {
+    console.error('❌ API Error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal Server Error',
+      details: error.message
+    });
+  }
 }
