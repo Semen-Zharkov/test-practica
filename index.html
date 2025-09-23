@@ -427,6 +427,7 @@
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             roistat.event.send('feedbackForm')
+            e.preventDefault();
             
             // // В реальном приложении здесь был бы код для отправки данных на сервер
             // // Для демонстрации просто покажем сообщение об успехе
