@@ -426,18 +426,18 @@
   </footer>
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // e.preventDefault();
             
-            // В реальном приложении здесь был бы код для отправки данных на сервер
-            // Для демонстрации просто покажем сообщение об успехе
+            // // В реальном приложении здесь был бы код для отправки данных на сервер
+            // // Для демонстрации просто покажем сообщение об успехе
             
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('feedbackForm').reset();
+            // document.getElementById('successMessage').style.display = 'block';
+            // document.getElementById('feedbackForm').reset();
             
-            // Скрыть сообщение через 3 секунды
-            setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 3000);
+            // // Скрыть сообщение через 3 секунды
+            // setTimeout(function() {
+            //     document.getElementById('successMessage').style.display = 'none';
+            // }, 3000);
         });
     </script>
     <!-- Roistat Counter Start -->
@@ -445,26 +445,8 @@
         document.querySelector('#event_js').addEventListener('click', (e)=> {
             roistat.event.send('event_js')
         })
-        document.querySelector('#feedbackForm').addEventListener('submit', async (e)=> {
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Добавляем дополнительную информацию
-            const submitData = {
-                ...data
-            };
-
+        document.querySelector('#feedbackForm').addEventListener('submit', (e)=> {
             roistat.event.send('feedbackForm')
-
-             const response = await fetch('https://test-practica-semen-zharkovs-projects.vercel.app/api/api.js', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(submitData)
-        });
-        
-        const result = await response.json();
         })
     </script>
     <!-- Roistat Counter End -->
