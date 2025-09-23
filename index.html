@@ -427,18 +427,18 @@
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             roistat.event.send('feedbackForm')
-            // e.preventDefault();
+            e.preventDefault();
             
             // // В реальном приложении здесь был бы код для отправки данных на сервер
             // // Для демонстрации просто покажем сообщение об успехе
             
-            // document.getElementById('successMessage').style.display = 'block';
-            // document.getElementById('feedbackForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('feedbackForm').reset();
             
-            // // Скрыть сообщение через 3 секунды
-            // setTimeout(function() {
-            //     document.getElementById('successMessage').style.display = 'none';
-            // }, 3000);
+            // Скрыть сообщение через 3 секунды
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
         });
     </script>
     <!-- Roistat Counter Start -->
