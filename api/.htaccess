@@ -12,4 +12,4 @@ RewriteRule ^(.*)$ $1 [R=200,L]
 # Перенаправляем все на webhook.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ api.php [QSA,L]
+RewriteRule ^(.*)$ api.js [QSA,L]
