@@ -1,5 +1,6 @@
 <?php
-// Простой webhook для логов
+// Явно устанавливаем CORS заголовки ПЕРЕД любым выводом
+header('Access-Control-Allow-Origin: https://test-practica.vercel.app');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
